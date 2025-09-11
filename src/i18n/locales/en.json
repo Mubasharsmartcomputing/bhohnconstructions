@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services", 
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Building Dreams Into Reality",
+    "subtitle": "Professional Quality Services",
+    "description": "Expert specialists in plastering, flooring and painting. We transform your vision into stunning reality with superior craftsmanship for residential and commercial projects.",
+    "cta": "Request Quote",
+    "cta_secondary": "Our Work"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Expertise and Craftsmanship",
+    "plastering": {
+      "title": "Plastering",
+      "description": "Professional plaster application for perfect finishes. Interior and exterior walls, repairs and custom creations."
+    },
+    "flooring": {
+      "title": "Flooring",
+      "description": "Expert installation of all floor types: hardwood, tile, vinyl and carpet. Personalized advice and guaranteed installation."
+    },
+    "painting": {
+      "title": "Painting", 
+      "description": "Interior and exterior painting work. Careful preparation, color selection and high-quality durable finishes."
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your Trusted Partner",
+    "description": "With years of experience in the construction industry, our team is committed to providing superior quality services. We prioritize client listening and satisfaction on every project.",
+    "features": {
+      "quality": "Premium Materials",
+      "experience": "Experienced Team",
+      "guarantee": "Guaranteed Work",
+      "service": "Personalized Service"
+    },
+    "badges": {
+      "qualified": "Qualified Team",
+      "projects": "Quality Projects",
+      "personalized": "Personalized Service"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Free Quote, No Obligation",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone",
+      "service": "Service needed",
+      "message": "Describe your project",
+      "submit": "Send Request"
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email", 
+      "address": "Address",
+      "hours": "Hours"
+    }
+  },
+  "footer": {
+    "tagline": "Bhohn Construction - Your vision, our expertise",
+    "links": {
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact",
+      "legal": "Legal"
+    },
+    "copyright": "All rights reserved"
+  }
+}

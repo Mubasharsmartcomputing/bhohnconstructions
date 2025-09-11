@@ -1,0 +1,75 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Transformer Vos Rêves En Réalité",
+    "subtitle": "Services Professionnels de Qualité",
+    "description": "Experts spécialistes en plâtrerie, revêtements de sol et peinture. Nous transformons votre vision en réalité époustouflante avec un savoir-faire supérieur pour projets résidentiels et commerciaux.",
+    "cta": "Demander un Devis",
+    "cta_secondary": "Nos Réalisations"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Expertise et Savoir-faire",
+    "plastering": {
+      "title": "Plâtrerie",
+      "description": "Application professionnelle de plâtre pour des finitions parfaites. Murs intérieurs et extérieurs, réparations et créations sur mesure."
+    },
+    "flooring": {
+      "title": "Revêtements de Sol",
+      "description": "Installation experte de tous types de sols : parquet, carrelage, vinyle et moquette. Conseils personnalisés et pose garantie."
+    },
+    "painting": {
+      "title": "Peinture",
+      "description": "Travaux de peinture intérieure et extérieure. Préparation soignée, choix des couleurs et finitions durables de haute qualité."
+    }
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "subtitle": "Votre Partenaire de Confiance",
+    "description": "Avec des années d'expérience dans le secteur de la construction, notre équipe s'engage à fournir des services de qualité supérieure. Nous privilégions l'écoute client et la satisfaction à chaque projet.",
+    "features": {
+      "quality": "Matériaux Premium",
+      "experience": "Équipe Expérimentée", 
+      "guarantee": "Travaux Garantis",
+      "service": "Service Personnalisé"
+    },
+    "badges": {
+      "qualified": "Équipe qualifiée",
+      "projects": "Projets de qualité",
+      "personalized": "Service personnalisé"
+    }
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Devis Gratuit et Sans Engagement",
+    "form": {
+      "name": "Nom complet",
+      "email": "Adresse email",
+      "phone": "Téléphone",
+      "service": "Service demandé",
+      "message": "Décrivez votre projet",
+      "submit": "Envoyer la Demande"
+    },
+    "info": {
+      "phone": "Téléphone",
+      "email": "Email",
+      "address": "Adresse",
+      "hours": "Horaires"
+    }
+  },
+  "footer": {
+    "tagline": "Bhohn Construction - Votre vision, notre expertise",
+    "links": {
+      "services": "Services",
+      "about": "À Propos",
+      "contact": "Contact",
+      "legal": "Mentions Légales"
+    },
+    "copyright": "Tous droits réservés"
+  }
+}
