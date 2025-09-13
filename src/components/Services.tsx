@@ -5,9 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Palette, Home, Brush } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import plasteringImage from '@assets/generated_images/Professional_plastering_work_8ee8c1fa.png';
-import flooringImage from '@assets/generated_images/Premium_flooring_installation_a82f9b83.png';
-import paintingImage from '@assets/generated_images/Professional_painting_service_9fa77f17.png';
+import plasteringImage from '/Professional_plastering_work_8ee8c1fa.png';
+import flooringImage from '/Premium_flooring_installation_a82f9b83.png';
+import paintingImage from '/Professional_painting_service_9fa77f17.png';
 
 gsap.registerPlugin(ScrollTrigger);
 

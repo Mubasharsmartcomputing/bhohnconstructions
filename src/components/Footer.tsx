@@ -2,7 +2,8 @@ import { useTranslation } from 'react-i18next';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
-import logoImg from '/bhohn.png';
+// cSpell:ignore bhohn
+const logoImg = '/bhohn.png';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ export default function Footer() {
             <img 
               src={logoImg} 
               alt="Bhohn Construction" 
-              className="h-12 w-auto"
+              className="h-12 w-auto dark:hidden"
             />
             <p className="text-muted-foreground leading-relaxed">
               {t('footer.tagline')}
