@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTheme } from './ThemeProvider';
-import logoImg from '/bhohn.png';
+import logoImg from '/bhohn.png?url';
 
 export default function Header() {
   const { t } = useTranslation();

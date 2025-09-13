@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Award, Users, Shield, Heart } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import aboutImg from '/about.png';
+import aboutImg from '/about.png?url';
 
 gsap.registerPlugin(ScrollTrigger);
 
