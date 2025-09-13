@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import gsap from 'gsap';
-import heroImage from '/hero-banner.png?url';
+const heroImage = '/hero-banner.png';
 
 export default function Hero() {
   const { t } = useTranslation();
