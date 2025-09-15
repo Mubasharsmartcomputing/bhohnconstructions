@@ -1,12 +1,16 @@
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 // cSpell:ignore bhohn
 const logoImg = '/bhohn.png';
 
 export default function Footer() {
   const { t } = useTranslation();
+  const { staggerAnimation } = useScrollAnimations();
+  const footerRef = useRef<HTMLDivElement>(null);
 
   const navigation = [
     { name: t('nav.home'), href: '#home' },
@@ -34,12 +38,23 @@ export default function Footer() {
     // todo: remove mock functionality - Add real social media links
   };
 
+  useEffect(() => {
+    if (footerRef.current?.children) {
+      staggerAnimation(Array.from(footerRef.current.children) as HTMLElement[], {
+        y: 40,
+        stagger: 0.1,
+        duration: 0.8,
+        start: "top 90%"
+      });
+    }
+  }, [staggerAnimation]);
+
   return (
     <footer className="bg-card/50 backdrop-blur-sm border-t">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div ref={footerRef} className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
           {/* Company Info */}
           <div className="space-y-4">

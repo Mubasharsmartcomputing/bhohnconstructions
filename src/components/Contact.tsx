@@ -11,10 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
@@ -29,9 +26,12 @@ type FormData = z.infer<typeof formSchema>;
 export default function Contact() {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const { fadeInUp, fadeInLeft, fadeInRight, staggerAnimation } = useScrollAnimations();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
   const infoRef = useRef<HTMLDivElement>(null);
+  const contactCardsRef = useRef<HTMLDivElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<FormData>({
@@ -81,38 +81,25 @@ export default function Contact() {
   ];
 
   useEffect(() => {
-    // Animate form
-    gsap.fromTo(formRef.current, 
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: formRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
+    if (titleRef.current) {
+      fadeInUp(titleRef.current, { duration: 1 });
+    }
 
-    // Animate contact info
-    gsap.fromTo(infoRef.current, 
-      { opacity: 0, x: 50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: infoRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-  }, []);
+    if (formRef.current) {
+      fadeInLeft(formRef.current, { duration: 1 });
+    }
+
+    if (infoRef.current) {
+      fadeInRight(infoRef.current, { duration: 1 });
+    }
+
+    if (contactCardsRef.current?.children) {
+      staggerAnimation(Array.from(contactCardsRef.current.children) as HTMLElement[], {
+        stagger: 0.1,
+        duration: 0.6
+      });
+    }
+  }, [fadeInUp, fadeInLeft, fadeInRight, staggerAnimation]);
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -133,7 +120,7 @@ export default function Contact() {
   return (
     <section id="contact" ref={sectionRef} className="py-16 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground mb-4">
             {t('contact.title')}
           </h2>
@@ -287,7 +274,7 @@ export default function Contact() {
 
           {/* Contact Info */}
           <div ref={infoRef} className="space-y-8">
-            <div className="space-y-6">
+            <div ref={contactCardsRef} className="space-y-6">
               {contactInfo.map((info, index) => (
                 <Card 
                   key={index} 

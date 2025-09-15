@@ -39,24 +39,24 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-background/80 backdrop-blur-lg border-b shadow-sm' : 'bg-transparent'
     } dark:bg-white dark:text-black`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="w-full px-2 mx-auto sm:px-4 md:px-6 lg:px-8 max-w-7xl">
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex items-center">
+          <div className="flex items-center flex-shrink-0">
             <img 
               src={logoImg} 
               alt="Bhohn Construction" 
-              className="h-10 lg:h-12 w-auto"
+              className="w-auto h-8 sm:h-10 lg:h-12"
             />
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="items-center hidden space-x-4 md:flex lg:space-x-8">
             {navigation.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="hover:text-primary transition-colors duration-200 font-medium"
+                className="font-medium transition-colors duration-200 hover:text-primary whitespace-nowrap"
                 data-testid={`link-${item.href.replace('#', '')}`}
               >
                 {item.name}
@@ -65,8 +65,8 @@ export default function Header() {
           </nav>
 
           {/* Right side controls */}
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
+          <div className="flex items-center flex-shrink-0 gap-1 sm:gap-2">
+           
             
             <Button
               variant="ghost"
@@ -76,8 +76,8 @@ export default function Header() {
               data-testid="button-theme-toggle"
             >
               {theme === 'light' ? 
-                <Moon className="h-5 w-5" /> : 
-                <Sun className="h-5 w-5" />
+                <Moon className="w-5 h-5" /> : 
+                <Sun className="w-5 h-5" />
               }
             </Button>
 
@@ -86,26 +86,30 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden hover-elevate"
+              className="md:hidden hover-elevate"
               data-testid="button-mobile-menu"
             >
               {isMobileMenuOpen ? 
-                <X className="h-6 w-6" /> : 
-                <Menu className="h-6 w-6" />
+                <X className="w-6 h-6" /> : 
+                <Menu className="w-6 h-6" />
               }
             </Button>
+
+             <LanguageSwitcher />
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-background/95 backdrop-blur-lg border rounded-lg mt-2 p-4">
+      {/* Mobile Navigation - Outside the container for full width */}
+      {isMobileMenuOpen && (
+        <div className="absolute left-0 right-0 border-b shadow-lg md:hidden top-full bg-background/95 backdrop-blur-lg">
+          <div className="px-2 py-3 mx-auto sm:px-4 sm:py-4 max-w-7xl">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200 font-medium py-2"
+                  className="py-2 font-medium text-left transition-colors duration-200 text-foreground hover:text-primary"
                   data-testid={`mobile-link-${item.href.replace('#', '')}`}
                 >
                   {item.name}
@@ -113,8 +117,8 @@ export default function Header() {
               ))}
             </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 }

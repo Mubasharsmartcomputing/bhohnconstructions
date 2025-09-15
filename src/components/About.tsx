@@ -3,17 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Award, Users, Shield, Heart } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useScrollAnimations } from '@/hooks/useScrollAnimations';
 const aboutImg = '/about.png';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
   const { t } = useTranslation();
+  const { fadeInLeft, fadeInRight, staggerAnimation } = useScrollAnimations();
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
   const features = [
     {
@@ -39,42 +38,21 @@ export default function About() {
   ];
 
   useEffect(() => {
-    // Animate content
-    gsap.fromTo(contentRef.current, 
-      { opacity: 0, x: -50 },
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 75%",
-          toggleActions: "play none none reverse"
-        }
-      }
-    );
-
-    // Animate features with stagger
-    if (featuresRef.current?.children) {
-      gsap.fromTo(featuresRef.current.children, 
-        { opacity: 0, y: 30, scale: 0.8 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: {
-            trigger: featuresRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
+    if (contentRef.current) {
+      fadeInLeft(contentRef.current, { duration: 1 });
     }
-  }, []);
+
+    if (imageRef.current) {
+      fadeInRight(imageRef.current, { duration: 1, delay: 0.2 });
+    }
+
+    if (featuresRef.current?.children) {
+      staggerAnimation(Array.from(featuresRef.current.children) as HTMLElement[], {
+        stagger: 0.1,
+        duration: 0.6
+      });
+    }
+  }, [fadeInLeft, fadeInRight, staggerAnimation]);
 
   return (
     <section id="about" ref={sectionRef} className="py-16 lg:py-24">
@@ -131,7 +109,7 @@ export default function About() {
           </div>
 
           {/* About Image */}
-          <div className="relative">
+          <div ref={imageRef} className="relative">
             <img 
               src={aboutImg} 
               alt="About Us" 
