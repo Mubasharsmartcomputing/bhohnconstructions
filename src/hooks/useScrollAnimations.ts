@@ -25,7 +25,10 @@ export const useScrollAnimations = () => {
       ...options
     };
 
-    gsap.fromTo(element, 
+    const target = typeof element === 'object' && 'current' in element ? element.current : element;
+    if (!target) return;
+
+    gsap.fromTo(target, 
       { opacity: 0, y: defaults.y },
       {
         opacity: 1,
@@ -33,7 +36,7 @@ export const useScrollAnimations = () => {
         duration: defaults.duration,
         ease: defaults.ease,
         scrollTrigger: {
-          trigger: element,
+          trigger: target,
           start: defaults.start,
           toggleActions: "play none none reverse"
         }
@@ -51,7 +54,10 @@ export const useScrollAnimations = () => {
       ...options
     };
 
-    gsap.fromTo(element, 
+    const target = typeof element === 'object' && 'current' in element ? element.current : element;
+    if (!target) return;
+
+    gsap.fromTo(target, 
       { opacity: 0, x: defaults.x },
       {
         opacity: 1,
@@ -59,7 +65,7 @@ export const useScrollAnimations = () => {
         duration: defaults.duration,
         ease: defaults.ease,
         scrollTrigger: {
-          trigger: element,
+          trigger: target,
           start: defaults.start,
           toggleActions: "play none none reverse"
         }
@@ -77,7 +83,10 @@ export const useScrollAnimations = () => {
       ...options
     };
 
-    gsap.fromTo(element, 
+    const target = typeof element === 'object' && 'current' in element ? element.current : element;
+    if (!target) return;
+
+    gsap.fromTo(target, 
       { opacity: 0, x: defaults.x },
       {
         opacity: 1,
@@ -85,7 +94,7 @@ export const useScrollAnimations = () => {
         duration: defaults.duration,
         ease: defaults.ease,
         scrollTrigger: {
-          trigger: element,
+          trigger: target,
           start: defaults.start,
           toggleActions: "play none none reverse"
         }
@@ -132,7 +141,10 @@ export const useScrollAnimations = () => {
       ...options
     };
 
-    gsap.fromTo(element, 
+    const target = typeof element === 'object' && 'current' in element ? element.current : element;
+    if (!target) return;
+
+    gsap.fromTo(target, 
       { opacity: 0, scale: defaults.scale },
       {
         opacity: 1,
@@ -140,7 +152,7 @@ export const useScrollAnimations = () => {
         duration: defaults.duration,
         ease: defaults.ease,
         scrollTrigger: {
-          trigger: element,
+          trigger: target,
           start: defaults.start,
           toggleActions: "play none none reverse"
         }
